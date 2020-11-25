@@ -15,8 +15,9 @@ class User extends Authenticatable implements MustVerifyEmail
      *
      * @var array
      */
+    protected $table ="pegawai";
     protected $fillable = [
-        'name', 'email', 'password', 'api_token'
+        'name', 'username', 'password', 'api_token'
     ];
 
     /**
@@ -33,7 +34,4 @@ class User extends Authenticatable implements MustVerifyEmail
      *
      * @var array
      */
-    protected $casts = [
-        'email_verified_at' => 'datetime',
-    ];
 }

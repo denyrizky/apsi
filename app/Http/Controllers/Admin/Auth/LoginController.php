@@ -46,6 +46,17 @@ class LoginController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+        public function username()
+    {
+        return 'username';
+    }
+    public function login(Request $req)
+    {
+        if(Auth::attempt(['username'=>$req->username,'password'=>$req->password])){
+            return redirect(route("admin.home")); 
+        }
+        return redirect(route("admin.login"));
+    }
     public function showLoginForm()
     {
         return view('admin.auth.login');

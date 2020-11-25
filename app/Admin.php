@@ -18,7 +18,7 @@ class Admin extends Authenticatable implements MustVerifyEmail
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password', 'api_token'
+        'name', 'username', 'password', 'api_token'
     ];
 
     /**
@@ -35,10 +35,6 @@ class Admin extends Authenticatable implements MustVerifyEmail
      *
      * @var array
      */
-    protected $casts = [
-        'email_verified_at' => 'datetime',
-    ];
-
     /**
      * Send the password reset notification.
      *

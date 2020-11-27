@@ -15,10 +15,20 @@ class User extends Authenticatable implements MustVerifyEmail
      *
      * @var array
      */
-    protected $table ="pegawai";
+    public $table ="pegawai";
     protected $fillable = [
-        'name', 'username', 'password', 'api_token'
+        'nama', 'username','nip','password','api_token'
     ];
+    public function FunctionName($value='')
+    {
+        # code...
+    }
+    public function jabatan(){
+        return $this->belongsTo(Jabtan::class);
+    }
+      public function golongan(){
+        return $this->belongsTo(Golongan::class);
+    }
 
     /**
      * The attributes that should be hidden for arrays.

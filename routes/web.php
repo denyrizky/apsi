@@ -1,7 +1,7 @@
 <?php
-
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-
+use App\User;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -27,10 +27,14 @@ Route::get('/verified', function () {
 
 Route::group(['prefix' => '/admin', 'namespace' => 'Admin', 'as' => 'admin.'], function () {
     Auth::routes(['verify' => true]);
-    Route::get('/daftarkaryawan','KelolaKaryawan@data');
-    Route::get('/daftarkaryawan/data','KelolaKaryawan@json');
+    //Datatable Route
     Route::get('/home', 'HomeController@index')->name('home');
-      Route::get('/', 'HomeController@index')->name('home');
+    Route::get('/', 'HomeController@index')->name('home');
+    Route::get('/users', 'KelolaKaryawan@data')->name('home');
+     Route::get('/golongan', 'KelolaKaryawan@golongan')->name('home');
+    Route::post('/daftar', 'KelolaKaryawan@isi')->name('home');
+    Route::get('/daftar', 'KelolaKaryawan@isi2')->name('home');
+    
     
     Route::get('/confirmed', function () {
         return 'password confirmed';
@@ -40,3 +44,4 @@ Route::group(['prefix' => '/admin', 'namespace' => 'Admin', 'as' => 'admin.'], f
         return 'email verified';
     })->middleware('verified:admin.verification.notice,admin-web');
 });
+

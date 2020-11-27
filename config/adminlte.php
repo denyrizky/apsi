@@ -265,7 +265,7 @@ return [
         ],
         [
             'text'    => 'Daftar Karyawan',
-            'url'     => '/admin/daftarkaryawan',
+            'url'     => '/admin/users',
         ],
                 [
             'text'    => 'Daftar Cuti',

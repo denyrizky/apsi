@@ -17,6 +17,7 @@ class CreateUsersTable extends Migration
             $table->id();
             $table->string('name',25);
             $table->string('nidn',15);
+            $table->string('nik',20);
             $table->string('username')->unique();
             $table->string('password');
             $table->string('status',2);
@@ -33,6 +34,6 @@ class CreateUsersTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('users');
+        Schema::dropIfExists('pegawai');
     }
 }

@@ -72,7 +72,7 @@
 								<li><a href="/rekap">Validasi laporan Keuangan</a></li>
 								@endif
 								<li><a href="/home">Profil</a></li>
-								@if($user->jabatan=="4")
+								@if($user->id_bagian=="")
 								<li><a href="about.html"></a></li>
 								<li><a href="shop.html"></a></li>
 								<li><a href="contact.html"></a></li>

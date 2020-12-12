@@ -244,7 +244,7 @@ return [
         ['header' => 'account_settings'],
         [
             'text' => 'profile',
-            'url'  => 'admin/settings',
+            'url'  => 'admin/home',
             'icon' => 'fas fa-fw fa-user',
         ],
         [
@@ -260,16 +260,36 @@ return [
                     'url'     => '#',
                 ],
 
+                [
+                    'text'    => 'Daftar Karyawan',
+                    'url'     => '/admin/users',
+                ],
+                        [
+                    'text'    => 'Daftar Cuti',
+                    'url'     => '/daftarcuti',
+                ],
             ],
 
         ],
         [
-            'text'    => 'Daftar Karyawan',
-            'url'     => '/admin/users',
-        ],
+            'text'    => 'Penjadwalan',
+            'icon'    => 'fas fa-fw fa-share',
+            'submenu' => [
                 [
-            'text'    => 'Daftar Cuti',
-            'url'     => '/daftarcuti',
+                    'text' => 'Mobil Unit',
+                    'url'  => '/admin/mobil',
+                ],
+                [
+                    'text'    => 'Barang',
+                    'url'     => '/admin/barang',
+                ],
+
+                [
+                    'text'    => 'Jadwal',
+                    'url'     => '/admin/jadwal',
+                ],
+            ],
+
         ],
         ['header' => 'labels'],
         [

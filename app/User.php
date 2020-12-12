@@ -24,7 +24,7 @@ class User extends Authenticatable implements MustVerifyEmail
         # code...
     }
     public function jabatan(){
-        return $this->belongsTo(Jabtan::class);
+        return $this->belongsTo(Jabatan::class);
     }
       public function golongan(){
         return $this->belongsTo(Golongan::class);

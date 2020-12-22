@@ -288,6 +288,11 @@ return [
                     'text'    => 'Jadwal',
                     'url'     => '/admin/jadwal',
                 ],
+
+                [
+                    'text'    => 'Laporan Jadwal',
+                    'url'     => '/admin/cetak-jadwal',
+                ],
             ],
 
         ],
@@ -365,16 +370,16 @@ return [
             ],
         ],
         'Select2' => [
-            'active' => false,
+            'active' => true,
             'files' => [
                 [
                     'type' => 'js',
-                    'asset' => false,
+                    'asset' => true,
                     'location' => '//cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js',
                 ],
                 [
                     'type' => 'css',
-                    'asset' => false,
+                    'asset' => true,
                     'location' => '//cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.css',
                 ],
             ],

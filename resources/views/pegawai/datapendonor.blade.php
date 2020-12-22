@@ -105,7 +105,7 @@ tbody {
                         @csrf
                             <div class="form-group">
                               <label>ID Pendonor</label>
-                              <input type="numer" disabled name="id" value="{{ $lastID }}" disable="true" class="form-control" required>
+                              <input type="numer" name="reg_id" value="{{ $lastID }}" readonly class="form-control" required>
                             </div>
                             <div class="form-group">
                             <label>KTP</label>
@@ -332,7 +332,7 @@ tbody {
 </svg></a>
                 </td>
                 <td>
-            <form action="{{ url('datapendonor/'. $item->id.'/edit') }}"   method="post" onsubmit="return confirm('Yakin Hapus Data ?')">
+            <form action="{{ url('datapendonor/'. $item->id.'/edit') }}"   method="post" onsubmit="return confirm('Apakah Yakin Ingin Menghapus Data ini ? ?')">
             @method('delete')
             @csrf
             <button class="btn btn-danger btn-sm">
@@ -365,7 +365,7 @@ tbody {
       method:"GET",
       success: function(data){
         // console.log(data);
-        let parse = JSON.parse(data);
+        // let parse = JSON.parse(data);
         console.log(data.reg_id);
 
         $('#edit_id').val(data.id);

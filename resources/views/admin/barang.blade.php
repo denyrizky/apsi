@@ -133,7 +133,7 @@
                   </svg></a>
                 </td>
                 <td>
-              <form action="{{ url('/admin/barang/'. $item->id.'/hapus') }}"   method="post" onsubmit="return confirm('Yakin Hapus Data ?')">
+              <form action="{{ url('/admin/barang/'. $item->id.'/hapus') }}"   method="post" onsubmit="return confirm('Apakah Yakin Ingin Menghapus Data ini ? ?')">
               @method('delete')
               @csrf
               <button class="btn btn-danger btn-sm btn-delete">

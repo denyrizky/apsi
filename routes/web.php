@@ -59,6 +59,11 @@ Route::group(['prefix' => '/admin', 'namespace' => 'Admin', 'as' => 'admin.'], f
     Route::delete('/barang/{id}/hapus','barangController@destroy');
 
     Route::get('/jadwal', 'jadwalController@show');
+    Route::post('/jadwal/tambah','jadwalController@tambah');
+    Route::post('/jadwal/update','jadwalController@update');
+    Route::get('/cetak-jadwal', 'jadwalController@cetak');
+    Route::get('/cetak/pertanggal/{tglawal}/{tglakhir}', 'jadwalController@cetakpertanggal')->name('cetak-jadwal-pertanggal');
+    Route::delete('/jadwal/{id}/hapus','jadwalController@destroy');
 
     Route::get('/confirmed', function () {
         return 'password confirmed';

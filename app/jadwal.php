@@ -8,13 +8,13 @@ class jadwal extends Model
 {
     protected $table = 'jadwal';
     protected $fillable = [
-        'tanggal_waktu',
-        'nama_instansi',
-        'alamat_tempat_donor',
-        'nama_koordinator',
-        'No_Hp',
+        'tgl',
+        'alamatt',
+        'namak',
+        'hape',
         'id_mobil',
         'id_pegawai',
         'id_barang',
+        'nama',
     ];
 }

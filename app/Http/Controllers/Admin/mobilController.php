@@ -49,7 +49,7 @@ class mobilController extends Controller
 
         $datamobil->save();
 
-        return redirect('/Admin/mobilunit')->with('added_success', 'Data Berhasil ditambahkan');
+        return redirect('/admin/mobil')->with('added_success', 'Data Berhasil ditambahkan');
     }
 
     /**

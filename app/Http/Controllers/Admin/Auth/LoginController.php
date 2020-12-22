@@ -52,10 +52,11 @@ class LoginController extends Controller
     }
     public function login(Request $req)
     {
-        if(Auth::attempt(['username'=>$req->username,'password'=>$req->password])){
-            return redirect(route("admin.home")); 
-        }
-        return redirect(route("admin.login"));
+        // if(Auth::attempt(['username'=>$req->username,'password'=>$req->password])){
+        //     return redirect("admin.home"); 
+        // }
+        // return redirect("admin.login");
+        dd(Auth::attempt(['username'=>$req->username,'password'=>$req->password]));
     }
     public function showLoginForm()
     {

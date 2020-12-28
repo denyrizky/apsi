@@ -34,6 +34,27 @@ class DataPendonorController extends Controller
             ]);
 
     }
+    public function cetak()
+    {
+        $user=Auth::user();
+        $datadonor = DataPendonor::all();
+        $lastID = DataPendonor::getLastID();
+        return view('pegawai.cetak-donor',["user"=>$user],[
+            "datadonor" =>$datadonor, 
+            "lastID" => $lastID
+            ]);
+
+    }
+
+    public function cetakpertanggal($tglawal, $tglakhir){
+        // dd("Tanggal Awal : ".$tglawal. "Tanggal Akhir : ".$tglakhir);
+
+        // $cetak = data_pendonors::with('data_pendonors')->whereBetween('tanggal_waktu',[$tglawal, $tglakhir])->get();
+        $cetak = DB::table('data_pendonors')->whereBetween('created_at',[$tglawal, $tglakhir])->get();
+        return view("/pegawai/Laporan", compact('cetak'));
+    
+    }
+
     public function input(Request $request)
     {
         $datadonor = new DataPendonor;

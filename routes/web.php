@@ -24,6 +24,8 @@ Route::post('/datapendonor','DataPendonorController@input');
 Route::get('/datapendonor/{id}/edit','DataPendonorController@edit');
 Route::post('/datapendonor/update','DataPendonorController@update');
 Route::delete('/datapendonor/{id}/edit','DataPendonorController@delete');
+Route::get('/cetak-donor','DataPendonorController@cetak');
+Route::get('/Laporan/{tglawal}/{tglakhir}', 'DataPendonorController@cetakpertanggal')->name('good');
 
 Route::get('/confirmed', function () {
     return 'password confirmed';

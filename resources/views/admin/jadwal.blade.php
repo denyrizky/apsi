@@ -1,6 +1,7 @@
 
 @extends("adminlte::page")
 <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/css/select2.min.css" rel="stylesheet" />
+<link href="https://cdn.datatables.net/1.10.22/css/jquery.dataTables.min.css" rel="stylesheet" />
 
 <style>
 .select2-selection__rendered {
@@ -74,8 +75,19 @@
               <div class="form-group">
                 <label>Mobil Unit</label>
                 <select name="unit" class="form-control">
+
+                <!-- syntax buat tabel saat di pilih tidak bisa di input lagi -->
                   @foreach($dataUnit as $du)
-                    <option value="{{ $du->id }}">{{ $du->Nama_instansi }}</option>
+
+                  <?php
+                    $checkJadwal = DB::table('jadwal')->where('id_mobil',$du->id)->first();
+
+                    if(empty($checkJadwal)){
+                  ?>
+
+                  <option value="{{ $du->id }}">{{ $du->Nama_instansi }}</option>
+
+                  <?php } ?>
                   @endforeach
                 </select>
                
@@ -222,7 +234,7 @@
   		<i class="fa fa-plus"></i> tambah
 		</button>
 	</div>
-	<table class="table" style="font-size:15px;">
+	<table class="table" style="font-size:15px;" id="tableData">
         <thead class="table-dark">
 		<tr>
 			<td>No</td>
@@ -328,7 +340,16 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
 <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/js/select2.min.js"></script>
+
+<script src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js"></script>
+
 <script> 
+
+$(function(){
+  $.noConflict();
+
+  $('#tableData').DataTable();
+});
 
   $('.pegawaiselect').select2();
   $('.barangselect').select2();

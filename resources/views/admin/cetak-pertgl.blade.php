@@ -4,6 +4,7 @@
 
     <title>Cetak Data</title>
 </head>
+
 <body>
 <div class="form-group">
     <h3><p align="center"><b>Laporan Data Jadwal</b></p></h3>
@@ -18,8 +19,9 @@
             <td>Nama Kordinator</td>
             <td>No Hp</td>
             <td>Barang</td>
-            <td>Instansi</td>
+            <td>Jumlah Pendonor</td>
             <td>List Pegawai</td>
+
 
 
 		</tr>
@@ -65,6 +67,12 @@
                 }
               }
 
+
+              $jumlah = '';
+
+              $getjumlah = DB::table('mobil_unit')->where('id',$item->id_mobil)->first();
+              $jumlah = $getjumlah->Jumlah_pendonor;
+
             ?>
 
             <tr>
@@ -75,8 +83,10 @@
                 <td>{{ $item->nama_koordinator	 }}</td>
                 <td>{{ $item->No_Hp }}</td>
                 <td><?= $barang ?></td>
-                <td>{{ $mobil }}</td>
+                <td>{{ $jumlah }} </td>
+                <td hidden >{{ $mobil }}</td>
                 <td><?= $pegawai ?></td>
+
 
                 @endforeach
         </tbody>

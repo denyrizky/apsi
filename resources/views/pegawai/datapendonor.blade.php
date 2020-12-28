@@ -1,54 +1,10 @@
 
 @extends('pegawai.layout')
 @section('content')
+<link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/css/select2.min.css" rel="stylesheet" />
+<link href="https://cdn.datatables.net/1.10.22/css/jquery.dataTables.min.css" rel="stylesheet" />
+
 <style>
-table {
-	width: 800px;
-	border-collapse: collapse;
-	overflow: hidden;
-	box-shadow: 0 0 20px rgba(0,0,0,0.1);
-}
-
-th,
-td {
-	padding: 15px;
-	background-color: rgba(255,255,255,0.2);
-	color: #fff;
-    font-size:13px;
-}
-
-th {
-	text-align: left;
-}
-
-thead {
-	th {
-		background-color: #55608f;
-	}
-}
-
-tbody {
-	tr {
-		&:hover {
-			background-color: rgba(255,255,255,0.3);
-		}
-	}
-	td {
-		position: relative;
-		&:hover {
-			&:before {
-				content: "";
-				position: absolute;
-				left: 0;
-				right: 0;
-				top: -9999px;
-				bottom: -9999px;
-				background-color: rgba(255,255,255,0.2);
-				z-index: -1;
-			}
-		}
-	}
-}
 #buttons {
   padding-top: 10px;
   text-align: center;
@@ -280,14 +236,14 @@ tbody {
 					<div class="container">
 						<div class="col-md-12 col-md-offset-0">
 							<div class="animate-box">
-									<div class="w-50 h-75" style="background-color: white"></div>
-                                    
-            <div class="card-body table-responsive"style="margin-left:-5%; margin-right:-5%;">
+									<div class="col-md-12 col-md-offset-0" style="background-color: white; padding-right:10%; padding-left:10%; ">
+                  
+                  <div class="card-body table-responsive"style="margin-left:-5%; margin-right:-5%;">
                 <div id="buttons" style ="padding-left:80%">
                             <a href="#" id="add" class="btn blue btn-primary" style ="inline-block;" data-toggle="modal" data-target="#exampleModalCenter">Add</a>
                 </div>
             
-            <table class="table" >
+            <table class="table" style="font-size:15px;" id="tableData" >
 	<thead class="table-dark">
             <tr>
                 <th>No</th>
@@ -308,7 +264,7 @@ tbody {
                 <th> </th>
             </tr>
         </thead>
-        <tbody class="table-dark">
+        <tbody class="table">
             @foreach ($datadonor as $item)
             <tr>
                 <td>{{ $loop->iteration }}</td>
@@ -347,6 +303,9 @@ tbody {
             @endforeach
         </tbody>
 </table>
+                  </div>
+                                    
+           
 							</div>
 						</div>
 					</div>
@@ -356,7 +315,21 @@ tbody {
 
 <!-- Menampilkan ID -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<script src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js"></script>
+
+ 
+
 <script> 
+
+
+$(function(){
+  $.noConflict();
+
+  $('#tableData').DataTable();
+});
+
+
     $('.btn-edit').on('click',function(){
   // console.log($(this).data('id'))
   let id = $(this).data('id')

@@ -49,7 +49,7 @@ class jadwalController extends Controller
             "datajadwal" => $datajadwal, 
             "dataPegawai" => $dataPegawai,
             "dataUnit" => $dataUnit,
-            "dataBarang" => $dataBarang
+            "dataBarang" => $dataBarang,
             ]);
     }
     public function cetakpertanggal($tglawal, $tglakhir){
